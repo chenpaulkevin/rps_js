@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav>
-        <a href="">Logo</a>
-        <h1>RPS Against Humanity</h1>
+      <a href="">Logo</a>
+      <h1>RPS Against Humanity</h1>
     </nav>
     <section>
-        Choose your poison.
-        <a href="">Rock</a>
-        <a href="">Paper</a>
-        <a href="">Scissors</a>
-        <p>Score: </p>
+      Choose your poison.
+      <button class="rps-action button" onclick="getPlayerChoice('Rock')">Rock</button>
+      <button class="rps-action button" onclick="getPlayerChoice('Paper')">Paper</button>
+      <button class="rps-action button" onclick="getPlayerChoice('Scissors')">Scissors</button>
+      <p>Result:</p>
+      <p>Score:</p>
     </section>
 
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
