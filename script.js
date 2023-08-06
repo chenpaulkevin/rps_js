@@ -1,5 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
+let computerScoreElement = document.querySelector(".computer-score");
+let userScoreElement = document.querySelector(".user-score");
+let roundResultElement = document.querySelector(".round-result");
 
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
@@ -17,30 +20,39 @@ function getPlayerChoice(playerAction) {
   }
 }
 function playRound(playerChoice, computerChoice) {
-    console.log("Your Choice: " + playerChoice);
-    console.log("Computer Choice: " + computerChoice);
-  
-    if (playerChoice === computerChoice) {
-      console.log("It's a Tie!");
-    } else if (
-      (playerChoice === "Rock" && computerChoice === "Scissors") ||
-      (playerChoice === "Paper" && computerChoice === "Rock") ||
-      (playerChoice === "Scissors" && computerChoice === "Paper")
-    ) {
-      playerScore++;
-      console.log("You Win!");
-    } else if (
-      (playerChoice === "Rock" && computerChoice === "Paper") ||
-      (playerChoice === "Paper" && computerChoice === "Scissors") ||
-      (playerChoice === "Scissors" && computerChoice === "Rock")
-    ) {
-      computerScore++;
-      console.log("You Lose!");
-    } else {
-      console.log("Invalid Choice");
-    }
-  
-    console.log("Your Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
+  if (playerChoice === computerChoice) {
+    game("Tie");
+  } else if (
+    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+    (playerChoice === "Paper" && computerChoice === "Rock") ||
+    (playerChoice === "Scissors" && computerChoice === "Paper")
+  ) {
+    playerScore++;
+    game("You Win!");
+  } else if (
+    (playerChoice === "Rock" && computerChoice === "Paper") ||
+    (playerChoice === "Paper" && computerChoice === "Scissors") ||
+    (playerChoice === "Scissors" && computerChoice === "Rock")
+  ) {
+    computerScore++;
+    game("You Lose!");
+  } else {
+    console.log("Invalid Choice");
   }
-  
+}
+
+
+function game(result) {
+  if (playerScore >= 5 || computerScore >= 5) {
+    const message = playerScore >= 5 ? "You've won" : "You've lost";
+    alert(`${message} the game!`);
+    playerScore = 0;
+    computerScore = 0;
+    roundResultElement.textContent = "";
+  } else {
+    roundResultElement.textContent = result;
+  }
+
+  computerScoreElement.textContent = computerScore;
+  userScoreElement.textContent = playerScore;
+}
